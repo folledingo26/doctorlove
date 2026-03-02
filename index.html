@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>doctorlove.ia — Your Inclusive AI Love Companion</title>
+  <meta name="description" content="doctorlove.ia is an inclusive and LGBTQ+ friendly AI companion for people who want to talk about love, identity, relationships, and emotional well-being." />
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #1a1a1a;
+      --muted: #4f4f4f;
+      --card: #ffffff;
+      --border: rgba(0, 0, 0, 0.08);
+      --gradient: linear-gradient(135deg, #ff5fa2 0%, #ffc857 20%, #61dafb 40%, #87f5b0 60%, #b49cff 80%, #ff7b7b 100%);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 10% 10%, rgba(255, 95, 162, 0.15), transparent 25%),
+        radial-gradient(circle at 85% 15%, rgba(97, 218, 251, 0.18), transparent 30%),
+        radial-gradient(circle at 75% 85%, rgba(135, 245, 176, 0.18), transparent 30%),
+        var(--bg);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    .container {
+      width: min(1100px, 92vw);
+      margin: 0 auto;
+    }
+
+    header {
+      padding: 1.5rem 0;
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(8px);
+      background: rgba(255, 255, 255, 0.72);
+      border-bottom: 1px solid var(--border);
+      z-index: 10;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .logo {
+      font-weight: 800;
+      letter-spacing: 0.2px;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 1.06rem;
+    }
+
+    .logo-mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--gradient);
+      box-shadow: 0 8px 22px rgba(0,0,0,0.15);
+    }
+
+    .pill {
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0.5rem 0.9rem;
+      font-size: 0.88rem;
+      color: var(--muted);
+      background: #fff;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 2rem;
+      align-items: center;
+      padding: 4.2rem 0 2.5rem;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.1rem, 5vw, 4rem);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+    }
+
+    .gradient-text {
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 1.08rem;
+      max-width: 60ch;
+      margin: 1.2rem 0 1.8rem;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .btn {
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      padding: 0.78rem 1.15rem;
+      font-weight: 700;
+      border: 1px solid transparent;
+      transition: transform 0.15s ease, box-shadow 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      color: #fff;
+      background: linear-gradient(120deg, #ff5fa2, #7b6dff, #43c6ff);
+      box-shadow: 0 10px 25px rgba(91, 83, 255, 0.28);
+    }
+
+    .btn-secondary {
+      color: var(--text);
+      border-color: var(--border);
+      background: #fff;
+    }
+
+    .doctor-card {
+      background: var(--card);
+      border-radius: 24px;
+      padding: 1.4rem;
+      border: 1px solid var(--border);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.07);
+    }
+
+    .doctor-image {
+      aspect-ratio: 1/1;
+      border-radius: 20px;
+      background:
+        radial-gradient(circle at 30% 24%, #ffe1ea 0%, #ffe1ea 24%, transparent 24%),
+        radial-gradient(circle at 70% 24%, #dff6ff 0%, #dff6ff 24%, transparent 24%),
+        linear-gradient(160deg, #ffd6ea 0%, #e6dcff 35%, #ddf7ff 60%, #dfffe8 100%);
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+    }
+
+    .avatar {
+      width: 74%;
+      height: 74%;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 45% 36%, #fff 0%, #fff 44%, transparent 45%),
+        radial-gradient(circle at 50% 78%, #ffffff 0%, #ffffff 38%, transparent 39%),
+        linear-gradient(180deg, #4a4a4a 0%, #161616 46%, #222 100%);
+      position: relative;
+      border: 8px solid #fff;
+      box-shadow: 0 14px 35px rgba(0, 0, 0, 0.18);
+    }
+
+    .avatar::after {
+      content: "💗";
+      position: absolute;
+      right: -6px;
+      top: -10px;
+      font-size: 1.8rem;
+      background: #fff;
+      border-radius: 999px;
+      padding: 0.2rem 0.45rem;
+      border: 1px solid var(--border);
+    }
+
+    section {
+      padding: 2rem 0;
+    }
+
+    .section-title {
+      font-size: clamp(1.3rem, 2vw, 1.75rem);
+      margin: 0 0 1rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .feature {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 1rem;
+    }
+
+    .feature h3 {
+      margin: 0 0 0.5rem;
+      font-size: 1.02rem;
+    }
+
+    .feature p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    footer {
+      padding: 2rem 0 3rem;
+      color: var(--muted);
+      font-size: 0.94rem;
+      text-align: center;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding-top: 2.3rem;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container topbar">
+      <div class="logo"><span class="logo-mark" aria-hidden="true"></span>doctorlove.ia</div>
+      <span class="pill">Inclusive • LGBTQ+ Friendly • Judgment-Free</span>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <h1>Your <span class="gradient-text">Doctor Love</span> for the heart, identity, and healing.</h1>
+        <p>
+          doctorlove.ia is a safe, kind, and colorful space for people who feel a little lost in love.
+          Talk freely, ask difficult questions, explore your identity, and receive thoughtful guidance — no judgment,
+          no pressure, just support.
+        </p>
+        <div class="buttons">
+          <a href="#" class="btn btn-primary">Start a conversation</a>
+          <a href="#features" class="btn btn-secondary">See how we help</a>
+        </div>
+      </div>
+
+      <aside class="doctor-card" aria-label="Doctor Love illustration">
+        <div class="doctor-image">
+          <div class="avatar" title="Doctor Love"></div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="features">
+      <h2 class="section-title">What doctorlove.ia can do for you</h2>
+      <div class="grid">
+        <article class="feature">
+          <h3>Open-hearted conversations</h3>
+          <p>Share what is on your mind: crushes, breakups, confusion, attachment patterns, or fear of vulnerability.</p>
+        </article>
+        <article class="feature">
+          <h3>Inclusive identity support</h3>
+          <p>Explore questions around sexual orientation, gender identity, labels, or no labels at all — in a fully LGBTQ+ friendly environment.</p>
+        </article>
+        <article class="feature">
+          <h3>Practical love advice</h3>
+          <p>Get actionable guidance for communication, boundaries, dating, emotional safety, and building healthier relationships.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Made with care for every kind of love. 🌈
+  </footer>
+</body>
+</html>
